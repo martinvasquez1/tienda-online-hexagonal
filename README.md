@@ -24,4 +24,6 @@ pip install -r requirements.txt
 `fix`: para correcciones de errores. \
 `refactor`: para cambios en el código que no afectan el comportamiento externo. \
 `docs`: para cambios en la documentación. \
-`style`: para cambios que no afectan el significado del código (espacios en blanco, formato, etc.).
+`style`: para cambios que no afectan el significado del código (espacios en blanco, formato, etc.). \
+`test`: para agregar o modificar pruebas automatizadas en el código. \
+`chore`: para tareas de mantenimiento y organización del proyecto que no afectan la funcionalidad.
