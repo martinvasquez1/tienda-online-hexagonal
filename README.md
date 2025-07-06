@@ -1,5 +1,14 @@
 # Tienda online hexagonal
 
+Este repositorio implementa una tienda con pedidos y productos utilizando arquitectura hexagonal. Esta estructura facilitará la escalabilidad y el mantenimiento del sistema.
+
+## Ejectuar
+
+```bash
+cd src/
+uvicorn main:app --reload
+```
+
 ## Instalar dependencias
 
 ### Windows
