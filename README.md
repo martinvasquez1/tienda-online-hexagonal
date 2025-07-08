@@ -15,7 +15,7 @@ uvicorn main:app --reload
 
 ```bash
 python -m venv venv
-cd venv/Scripts/activate && cd ../../
+venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
