@@ -2,7 +2,7 @@ from typing import List, Optional
 
 from src.application.servicio_producto_port import ServicioProductoPort
 from src.domain.repositories.repositorio_producto import RepositorioProducto
-from src.domain.entities.producto import Producto
+from src.domain.entities.Producto import Producto
 
 
 class ServicioProducto(ServicioProductoPort):

@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import List, Optional
 
-from src.domain.entities.producto import Producto
+from src.domain.entities.Producto import Producto
 
 
 class ServicioProductoPort(ABC):

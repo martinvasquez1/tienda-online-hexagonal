@@ -1,5 +1,5 @@
-from src.application.servicio_producto_port import ServicioProducto
-from src.infrastructure.repositories.repositorio_prodcuto_in_memory import (
+from src.application.servicio_producto import ServicioProducto
+from src.infrastructure.repositories.repositorio_producto_in_memory import (
     RepositorioProductoInMemory,
 )
 

@@ -1,28 +1,48 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Depends, Request
+
+from src.infrastructure.dependencies.dependencias_producto import (
+    obtener_servicio_prodcuto,
+)
+from src.application.servicio_producto_port import ServicioProductoPort
 
 router = APIRouter()
 
 
 @router.post("/productos/")
-async def crear_producto():
+async def crear_producto(
+    request: Request,
+    servicio_producto: ServicioProductoPort = Depends(obtener_servicio_prodcuto),
+):
     raise HTTPException(status_code=501, detail="No implementado")
 
 
 @router.get("/productos/")
-async def obtener_productos():
+async def obtener_productos(
+    request: Request,
+    servicio_producto: ServicioProductoPort = Depends(obtener_servicio_prodcuto),
+):
     raise HTTPException(status_code=501, detail="No implementado")
 
 
 @router.get("/productos/{producto_id}")
-async def obtener_producto():
+async def obtener_producto(
+    request: Request,
+    servicio_producto: ServicioProductoPort = Depends(obtener_servicio_prodcuto),
+):
     raise HTTPException(status_code=501, detail="No implementado")
 
 
 @router.put("/productos/{producto_id}")
-async def actualizar_producto():
+async def actualizar_producto(
+    request: Request,
+    servicio_producto: ServicioProductoPort = Depends(obtener_servicio_prodcuto),
+):
     raise HTTPException(status_code=501, detail="No implementado")
 
 
 @router.delete("/productos/{producto_id}")
-async def eliminar_producto():
+async def eliminar_producto(
+    request: Request,
+    servicio_producto: ServicioProductoPort = Depends(obtener_servicio_prodcuto),
+):
     raise HTTPException(status_code=501, detail="No implementado")
