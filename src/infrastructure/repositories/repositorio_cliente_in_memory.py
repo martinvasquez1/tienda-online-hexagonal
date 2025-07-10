@@ -1,3 +1,6 @@
+from abc import ABC, abstractmethod
+from typing import List, Optional
+
 from src.domain.repositories.repositorio_cliente import RepositorioCliente
 from src.domain.entities.Cliente import Cliente
 

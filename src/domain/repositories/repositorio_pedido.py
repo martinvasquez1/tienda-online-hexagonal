@@ -1,4 +1,7 @@
-from ..entities import Pedido
+from abc import ABC, abstractmethod
+from typing import List, Optional
+
+from src.domain.entities.Pedido import Pedido
 
 
 class RepositorioPedido(ABC):

@@ -1,3 +1,6 @@
+from abc import ABC, abstractmethod
+from typing import List, Optional
+
 from src.domain.repositories.repositorio_pedido import RepositorioPedido
 from src.domain.entities.Pedido import Pedido
 

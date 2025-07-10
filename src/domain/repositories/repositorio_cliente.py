@@ -1,4 +1,7 @@
-from .entities import Cliente
+from abc import ABC, abstractmethod
+from typing import List, Optional
+
+from src.domain.entities.Cliente import Cliente, TipoCliente
 
 
 class RepositorioCliente(ABC):

@@ -1,3 +1,6 @@
+from abc import ABC, abstractmethod
+from typing import List, Optional
+
 from src.domain.repositories.repositorio_producto import RepositorioProducto
 from src.domain.entities.Producto import Producto
 
