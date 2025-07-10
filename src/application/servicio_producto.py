@@ -1,11 +1,11 @@
 from typing import List, Optional
 
-from src.domain.entities.producto import Producto
-from src.application.producto_servicio_port import ProductoServiceBase
+from src.application.servicio_producto_port import ServicioProductoPort
 from src.domain.repositories.repositorio_producto import RepositorioProducto
+from src.domain.entities.producto import Producto
 
 
-class ProductoServicio(ProductoServiceBase):
+class ServicioProducto(ServicioProductoPort):
     def __init__(self, repositorio_producto: RepositorioProducto):
         self.repositorio_producto = repositorio_producto
 

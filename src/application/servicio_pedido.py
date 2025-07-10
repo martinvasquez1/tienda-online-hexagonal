@@ -1,12 +1,12 @@
 from typing import List, Optional
 from uuid import UUID
 
-from src.application.pedido_servicio_port import PedidoServiceBase
+from src.application.servicio_pedido_port import ServicioPedidoPort
 from src.domain.repositories.repositorio_pedido import RepositorioPedido
 from src.domain.entities.Pedido import Pedido
 
 
-class PedidoServicio(PedidoServiceBase):
+class ServicioPedido(ServicioPedidoPort):
     def __init__(self, repositorio_pedido: RepositorioPedido):
         self.repositorio_pedido = repositorio_pedido
 

@@ -4,7 +4,7 @@ from typing import List, Optional
 from src.domain.entities.Pedido import Pedido
 
 
-class PedidoServiceBase(ABC):
+class ServicioPedidoPort(ABC):
     @abstractmethod
     def registrar_pedido(self, productos) -> Optional[Pedido]:
         """Registra un nuevo pedido y devuelve el objeto Pedido creado."""

@@ -4,7 +4,7 @@ from typing import List, Optional
 from src.domain.entities.Cliente import Cliente, TipoCliente
 
 
-class ClienteServiceBase(ABC):
+class ServicioClientePort(ABC):
     @abstractmethod
     def registrar_cliente(
         self, nombre: str, email: str, direccion: str, tipo: TipoCliente
