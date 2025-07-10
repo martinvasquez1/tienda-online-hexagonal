@@ -1,7 +1,7 @@
 from .entities import Cliente
 
 
-class IRepositorioCliente(ABC):
+class RepositorioCliente(ABC):
     @abstractmethod
     def agregar(self, cliente: Cliente) -> None:
         """Agrega un nuevo cliente al repositorio."""

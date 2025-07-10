@@ -1,7 +1,7 @@
 from ..entities import Pedido
 
 
-class IRepositorioPedido(ABC):
+class RepositorioPedido(ABC):
     @abstractmethod
     def agregar(self, pedido: Pedido) -> None:
         """Agrega un nuevo pedido al repositorio."""

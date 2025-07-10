@@ -3,7 +3,7 @@ from typing import List, Optional
 from ..entities import Producto
 
 
-class IRepositorioProducto(ABC):
+class RepositorioProducto(ABC):
     @abstractmethod
     def agregar(self, producto: Producto) -> None:
         """Agrega un nuevo producto al repositorio."""
