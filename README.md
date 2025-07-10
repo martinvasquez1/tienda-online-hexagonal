@@ -23,7 +23,7 @@ pip install -r requirements.txt
 
 ```bash
 python3 -m venv env
-source venv/bin/activate
+source env/bin/activate
 pip install -r requirements.txt
 ```
 
