@@ -5,8 +5,7 @@ Este repositorio implementa una tienda con pedidos y productos utilizando arquit
 ## Ejectuar
 
 ```bash
-cd src/
-uvicorn main:app --reload
+uvicorn src.main:app --reload
 ```
 
 ## Instalar dependencias
