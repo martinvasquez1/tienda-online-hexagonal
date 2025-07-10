@@ -1,4 +1,4 @@
-from src.application.servicio_cliente_port import ServicioClientePort
+from src.application.servicio_cliente import ServicioCliente
 from src.infrastructure.repositories.repositorio_cliente_in_memory import (
     RepositorioClienteInMemory,
 )
@@ -10,5 +10,5 @@ from src.infrastructure.repositories.repositorio_cliente_in_memory import (
 repo = RepositorioClienteInMemory()
 
 
-def obtener_servicio_cliente() -> ServicioClientePort:
-    return ServicioClientePort(repo)
+def obtener_servicio_cliente() -> ServicioCliente:
+    return ServicioCliente(repo)

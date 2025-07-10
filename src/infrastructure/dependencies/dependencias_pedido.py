@@ -1,4 +1,4 @@
-from src.application.servicio_pedido_port import ServicioPedidoPort
+from src.application.servicio_pedido import ServicioPedido
 from src.infrastructure.repositories.repositorio_pedido_in_memory import (
     RepositorioPedidoInMemory,
 )
@@ -10,5 +10,5 @@ from src.infrastructure.repositories.repositorio_pedido_in_memory import (
 repo = RepositorioPedidoInMemory()
 
 
-def obtener_servicio_pedido() -> ServicioPedidoPort:
-    return ServicioPedidoPort(repo)
+def obtener_servicio_pedido() -> ServicioPedido:
+    return ServicioPedido(repo)
