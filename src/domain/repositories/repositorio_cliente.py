@@ -1,4 +1,4 @@
-from .entity import Cliente
+from .entities import Cliente
 
 
 class IRepositorioCliente(ABC):

@@ -1,4 +1,4 @@
-from ..entity import Pedido
+from ..entities import Pedido
 
 
 class IRepositorioPedido(ABC):

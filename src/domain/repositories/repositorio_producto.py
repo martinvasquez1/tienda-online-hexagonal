@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import List, Optional
-from ..entity import Producto
+from ..entities import Producto
 
 
 class IRepositorioProducto(ABC):
