@@ -1,9 +1,11 @@
+from typing import List, Optional
+
 from src.application.cliente_servicio_port import ClienteServiceBase
 from src.domain.entities.Cliente import Cliente, TipoCliente
 from src.domain.repositories.repositorio_cliente import RepositorioCliente
 
 
-class ClienteService(ClienteServiceBase):
+class ClienteServicio(ClienteServiceBase):
     def __init__(self, repositorio_cliente: RepositorioCliente):
         self.repositorio_cliente = repositorio_cliente
 

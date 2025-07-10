@@ -2,9 +2,13 @@ from typing import List, Optional
 
 from src.domain.entities.producto import Producto
 from src.application.producto_servicio_port import ProductoServiceBase
+from src.domain.repositories.repositorio_producto import RepositorioProducto
 
 
-class ProductoService(ProductoServiceBase):
+class ProductoServicio(ProductoServiceBase):
+    def __init__(self, repositorio_producto: RepositorioProducto):
+        self.repositorio_producto = repositorio_producto
+
     def registrar_producto(self, precio: float) -> Optional[Producto]:
         return "Este método registrará un nuevo producto y devolverá el objeto Producto creado."
 

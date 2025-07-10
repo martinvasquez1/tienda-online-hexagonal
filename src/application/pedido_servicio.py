@@ -2,10 +2,14 @@ from typing import List, Optional
 from uuid import UUID
 
 from src.application.pedido_servicio_port import PedidoServiceBase
+from src.domain.repositories.repositorio_pedido import RepositorioPedido
 from src.domain.entities.Pedido import Pedido
 
 
-class PedidoService(PedidoServiceBase):
+class PedidoServicio(PedidoServiceBase):
+    def __init__(self, repositorio_pedido: RepositorioPedido):
+        self.repositorio_pedido = repositorio_pedido
+
     def registrar_pedido(self, productos) -> Optional[Pedido]:
         return "Este método registrará un nuevo pedido y devolverá el objeto Pedido creado."
 
