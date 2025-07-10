@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 import uvicorn
 
-from src.adapter.http_handlers.pedido_handler import router as producto_router
-from src.adapter.http_handlers.producto_handler import router as pedido_router
-from src.adapter.http_handlers.cliente_handler import router as cliente_router
+from src.infrastructure.http_handlers.pedido_handler import router as producto_router
+from src.infrastructure.http_handlers.producto_handler import router as pedido_router
+from src.infrastructure.http_handlers.cliente_handler import router as cliente_router
 
 app = FastAPI()
 
