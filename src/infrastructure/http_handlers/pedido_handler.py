@@ -8,12 +8,13 @@ from src.application.servicio_pedido_port import ServicioPedidoPort
 router = APIRouter()
 
 
-@router.post("/pedidos/")
+@router.post("/clientes/{cliente_id}/pedidos")
 async def crear_pedido(
-    request: Request,
+    cliente_id: int,
     servicio_pedido: ServicioPedidoPort = Depends(obtener_servicio_pedido),
 ):
-    raise HTTPException(status_code=501, detail="No implementado")
+    nuevo_pedido = servicio_pedido.crear_pedido(cliente_id)
+    return nuevo_pedido
 
 
 @router.get("/pedidos/")

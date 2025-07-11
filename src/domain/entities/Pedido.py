@@ -17,8 +17,8 @@ class EstadoPedido(Enum):
 
 
 class Pedido(ABC):
-    def __init__(self):
-        self.id = uuid4()
+    def __init__(self, id):
+        self.id = id
         self.estado = EstadoPedido.EN_PREPARACION
         self.productos: Producto = []
         self.precio_estandar = 10
