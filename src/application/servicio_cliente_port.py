@@ -13,13 +13,25 @@ class ServicioClientePort(ABC):
         pass
 
     @abstractmethod
-    def listar_todos_los_clientes(self) -> List[Cliente]:
+    def obtener_clientes(self) -> List[Cliente]:
         """Devuelve una lista de todos los clientes registrados."""
         pass
 
     @abstractmethod
     def buscar_cliente_por_id(self, id) -> Optional[Cliente]:
         """Busca un cliente por su ID y devuelve el objeto Cliente si se encuentra."""
+        pass
+
+    @abstractmethod
+    def actualizar(
+        self,
+        id: int,
+        nombre: Optional[str],
+        email: Optional[str],
+        direccion: Optional[str],
+        tipo: Optional[TipoCliente],
+    ) -> Optional[Cliente]:
+        """Actualiza los datos de un cliente"""
         pass
 
     @abstractmethod
