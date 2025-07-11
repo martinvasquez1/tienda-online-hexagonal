@@ -5,9 +5,16 @@ from src.domain.entities.Producto import Producto
 
 
 class RepositorioProductoInMemory(RepositorioProducto):
+    _instance = None
+
     def __init__(self):
         self.productos = []
         self.siguiente_id = 1
+
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            cls._instance = super(RepositorioProductoInMemory, cls).__new__(cls)
+        return cls._instance
 
     def crear_producto(
         self, pedido_id: int, nombre: str, precio: float, stock: int

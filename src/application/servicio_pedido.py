@@ -4,6 +4,8 @@ from uuid import UUID
 from src.application.servicio_pedido_port import ServicioPedidoPort
 from src.domain.repositories.repositorio_pedido import RepositorioPedido
 from src.domain.repositories.repositorio_cliente import RepositorioCliente
+from src.domain.repositories.repositorio_producto import RepositorioProducto
+
 from src.domain.entities.Pedido import Pedido
 
 from src.infrastructure.http_handlers.exceptions.exceptions_cliente import (
@@ -19,9 +21,11 @@ class ServicioPedido(ServicioPedidoPort):
         self,
         repositorio_pedido: RepositorioPedido,
         repositorio_cliente: RepositorioCliente,
+        repositorio_producto: RepositorioProducto,
     ):
         self.repositorio_pedido = repositorio_pedido
         self.repositorio_cliente = repositorio_cliente
+        self.repositorio_producto = repositorio_producto
 
     def check_cliente(self, cliente_id):
         cliente = self.repositorio_cliente.obtener(cliente_id)
@@ -40,13 +44,22 @@ class ServicioPedido(ServicioPedidoPort):
 
     def obtener_pedidos(self, cliente_id) -> List[Pedido]:
         self.check_cliente(cliente_id)
+
         pedidos = self.repositorio_pedido.obtener_pedidos(cliente_id)
+        for pedido in pedidos:
+            productos = self.repositorio_producto.obtener_productos(pedido.id)
+            pedido.productos = productos
+
         return pedidos
 
     def obtener_pedido(self, cliente_id, pedido_id: str) -> Optional[Pedido]:
         self.check_cliente(cliente_id)
         self.check_pedido(pedido_id)
+
         pedido = self.repositorio_pedido.obtener_pedido(pedido_id)
+        productos = self.repositorio_producto.obtener_productos(pedido_id)
+        pedido.productos = productos
+
         return pedido
 
     def actualizar_pedido(self, id: str) -> Optional[Pedido]:

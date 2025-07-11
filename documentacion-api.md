@@ -85,11 +85,32 @@ La API de UVShop sigue los principios de diseño REST y permite la gestión de *
 
 - **Endpoint:** `clientes/{cliente_id}/pedidos`
 - **Método HTTP:** `GET`
-- **Descripción:** Obtener pedidos para un cliente
+- **Descripción:** Obtener pedidos para un cliente con sus productos.
 
 #### Respuestas:
 
 - `200 OK`
+
+```json
+[
+  {
+    "id": 1,
+    "estado": "en preparación",
+    "productos": [
+      {
+        "id": 1,
+        "nombre": "Brave New World",
+        "precio": 40,
+        "stock": 23,
+        "pedido_id": 1
+      }
+    ],
+    "precio_estandar": 10,
+    "cliente_id": 1
+  }
+]
+```
+
 - `404 Not Found`
 
 ---
@@ -103,6 +124,25 @@ La API de UVShop sigue los principios de diseño REST y permite la gestión de *
 #### Respuestas:
 
 - `200 OK`
+
+```json
+{
+  "id": 1,
+  "estado": "en preparación",
+  "productos": [
+    {
+      "id": 1,
+      "nombre": "The Trial",
+      "precio": 42.0,
+      "stock": 20,
+      "pedido_id": 1
+    }
+  ],
+  "precio_estandar": 10,
+  "cliente_id": 1
+}
+```
+
 - `404 Not Found`
 
 ---
