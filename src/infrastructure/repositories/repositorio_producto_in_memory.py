@@ -9,8 +9,10 @@ class RepositorioProductoInMemory(RepositorioProducto):
         self.productos = []
         self.siguiente_id = 1
 
-    def crear_producto(self, nombre: str, precio: float, stock: int) -> None:
-        nuevo_producto = Producto(self.siguiente_id, nombre, precio, stock)
+    def crear_producto(
+        self, pedido_id: int, nombre: str, precio: float, stock: int
+    ) -> None:
+        nuevo_producto = Producto(self.siguiente_id, pedido_id, nombre, precio, stock)
         self.productos.append(nuevo_producto)
         self.siguiente_id += 1
 

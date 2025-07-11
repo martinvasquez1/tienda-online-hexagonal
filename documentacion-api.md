@@ -8,9 +8,9 @@ La API de UVShop sigue los principios de diseño REST y permite la gestión de *
 
 ### Crear Producto
 
-- **Endpoint:** `/usuarios/{usuario_id}/productos`
+- **Endpoint:** `/clientes/{cliente_id}/pedidos/{pedido_id}/productos`
 - **Método HTTP:** `POST`
-- **Descripción:** Crea un nuevo producto.
+- **Descripción:** Crea un nuevo producto para un pedido de un cliente
 
 #### Cuerpo de la solicitud:
 

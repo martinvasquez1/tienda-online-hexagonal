@@ -6,9 +6,16 @@ from src.domain.entities.Pedido import Pedido, PedidoEstandar
 
 
 class RepositorioPedidoInMemory(RepositorioPedido):
+    _instance = None
+
     def __init__(self):
         self.pedidos = []
         self.siguiente_id = 1
+
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            cls._instance = super(RepositorioPedidoInMemory, cls).__new__(cls)
+        return cls._instance
 
     def crear_pedido(self, cliente_id: str) -> Optional[Pedido]:
         nuevo_pedido = PedidoEstandar(self.siguiente_id, cliente_id)

@@ -7,7 +7,7 @@ from src.domain.entities.Producto import Producto
 class ServicioProductoPort(ABC):
     @abstractmethod
     def crear_producto(
-        self, nombre: str, precio: float, stock: int
+        cliente_id: int, pedido_id: int, self, nombre: str, precio: float, stock: int
     ) -> Optional[Producto]:
         """Registra un nuevo producto y devuelve el objeto Producto creado."""
         pass

@@ -8,19 +8,32 @@ from src.infrastructure.http_handlers.models.producto import (
     CrearProducto,
     ActualizarProducto,
 )
+from src.infrastructure.http_handlers.exceptions.exceptions_cliente import (
+    ClienteNoEncontrado,
+)
+from src.infrastructure.http_handlers.exceptions.exceptions_pedido import (
+    PedidoNoEncontrado,
+)
 
 router = APIRouter()
 
 
-@router.post("/productos/")
+@router.post("/clientes/{cliente_id}/pedidos/{pedido_id}/productos")
 async def crear_producto(
+    cliente_id: int,
+    pedido_id: int,
     producto: CrearProducto,
     servicio_producto: ServicioProductoPort = Depends(obtener_servicio_prodcuto),
 ):
-    nuevo_producto = servicio_producto.crear_producto(
-        producto.nombre, producto.precio, producto.stock
-    )
-    return nuevo_producto
+    try:
+        nuevo_producto = servicio_producto.crear_producto(
+            cliente_id, pedido_id, producto.nombre, producto.precio, producto.stock
+        )
+        return nuevo_producto
+    except ClienteNoEncontrado as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    except PedidoNoEncontrado as e:
+        raise HTTPException(status_code=404, detail=str(e))
 
 
 @router.get("/productos/")
