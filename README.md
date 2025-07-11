@@ -1,6 +1,6 @@
 # Tienda online hexagonal
 
-Este repositorio implementa una tienda con pedidos y productos utilizando arquitectura hexagonal. Esta estructura facilitará la escalabilidad y el mantenimiento del sistema.
+Este repositorio implementa una tienda con pedidos y productos utilizando arquitectura hexagonal. Esta estructura facilitará la escalabilidad y el mantenimiento del sistema. El video de youtube explicando lo necesario se encuentra en este link https://www.youtube.com/watch?v=SpmLZXS3fII
 
 ## Estructura de entidades
 
