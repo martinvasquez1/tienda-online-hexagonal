@@ -20,8 +20,9 @@ class RepositorioProductoInMemory(RepositorioProducto):
     def obtener_productos(self) -> List[Producto]:
         return self.productos
 
-    def obtener(self, id_producto) -> Optional[Producto]:
-        return "Este método obtendrá un producto por su ID."
+    def obtener_producto(self, id_producto) -> Optional[Producto]:
+        producto = next((p for p in self.productos if p.id == id_producto), None)
+        return producto
 
     def actualizar(self, producto: Producto) -> None:
         return "Este método actualizará la información de un producto existente."

@@ -16,7 +16,7 @@ class RepositorioProducto(ABC):
         pass
 
     @abstractmethod
-    def obtener(self, id_producto) -> Optional[Producto]:
+    def obtener_producto(self, id_producto) -> Optional[Producto]:
         """Obtiene un producto por su ID."""
         pass
 

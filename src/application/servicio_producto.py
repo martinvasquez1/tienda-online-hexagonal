@@ -17,8 +17,9 @@ class ServicioProducto(ServicioProductoPort):
         productos = self.repositorio_producto.obtener_productos()
         return productos
 
-    def buscar_producto_por_id(self, id: int) -> Optional[Producto]:
-        return "Este método buscará un producto por su ID y devolverá el objeto Producto si se encuentra."
+    def obtener_producto(self, id: int) -> Optional[Producto]:
+        producto = self.repositorio_producto.obtener_producto(id)
+        return producto
 
     def eliminar_producto(self, id: int) -> bool:
         return "Este método eliminará un producto por su ID y devolverá True si se eliminó con éxito."

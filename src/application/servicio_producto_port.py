@@ -16,7 +16,7 @@ class ServicioProductoPort(ABC):
         pass
 
     @abstractmethod
-    def buscar_producto_por_id(self, id: int) -> Optional[Producto]:
+    def obtener_producto(self, id: int) -> Optional[Producto]:
         """Busca un producto por su ID y devuelve el objeto Producto si se encuentra."""
         pass
 
