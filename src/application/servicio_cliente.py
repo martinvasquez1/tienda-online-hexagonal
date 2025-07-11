@@ -16,7 +16,7 @@ class ServicioCliente(ServicioClientePort):
         return nuevo_cliente
 
     def obtener_clientes(self) -> List[Cliente]:
-        clientes = self.repositorio_cliente.obtener()
+        clientes = self.repositorio_cliente.obtener_clientes()
         return clientes
 
     def obtener(self, id) -> Optional[Cliente]:

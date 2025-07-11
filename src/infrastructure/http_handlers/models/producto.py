@@ -5,8 +5,10 @@ from typing import Any, Optional
 class CrearProducto(BaseModel):
     nombre: str
     precio: float
+    stock: int
 
 
 class ActualizarProducto(BaseModel):
     nombre: Optional[str] = None
     precio: Optional[float] = None
+    stock: Optional[int] = None

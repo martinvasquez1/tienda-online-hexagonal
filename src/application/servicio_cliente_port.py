@@ -18,7 +18,7 @@ class ServicioClientePort(ABC):
         pass
 
     @abstractmethod
-    def buscar_cliente_por_id(self, id) -> Optional[Cliente]:
+    def obtener(self, id) -> Optional[Cliente]:
         """Busca un cliente por su ID y devuelve el objeto Cliente si se encuentra."""
         pass
 
