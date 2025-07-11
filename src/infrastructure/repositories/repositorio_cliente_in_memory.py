@@ -1,4 +1,3 @@
-from abc import ABC, abstractmethod
 from typing import List, Optional
 
 from src.domain.repositories.repositorio_cliente import RepositorioCliente
@@ -49,4 +48,10 @@ class RepositorioClienteInMemory(RepositorioCliente):
         return cliente
 
     def eliminar(self, id_cliente) -> None:
-        return "Este método eliminará un cliente del repositorio por su ID."
+        cliente = self.obtener(id_cliente)
+
+        if not cliente:
+            return None
+
+        self.productos = [c for c in self.productos if c.id != id_cliente]
+        return cliente

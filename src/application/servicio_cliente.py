@@ -37,4 +37,5 @@ class ServicioCliente(ServicioClientePort):
         return cliente
 
     def eliminar_cliente(self, id) -> bool:
-        return "Este método eliminará un cliente por su ID y devolverá True si se eliminó con éxito."
+        fueEliminado = self.repositorio_cliente.eliminar(id)
+        return fueEliminado

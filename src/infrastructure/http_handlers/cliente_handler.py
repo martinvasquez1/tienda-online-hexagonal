@@ -29,7 +29,7 @@ async def crear_cliente(
     except Exception as e:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Error al clear nuevo cliente: {e}",
+            detail=f"Error inesperado: {e}",
         )
 
 
@@ -52,13 +52,13 @@ async def obtener_clientes(
     except Exception as e:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Error al buscar clientes: {e}",
+            detail=f"Error inesperado: {e}",
         )
 
 
 @router.get("/clientes/{cliente_id}")
 async def obtener_cliente(
-    id: int,
+    cliente_id: int,
     servicio_cliente: ServicioClientePort = Depends(obtener_servicio_cliente),
     status_code=status.HTTP_200_OK,
 ):
@@ -74,20 +74,20 @@ async def obtener_cliente(
     except Exception as e:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Error al buscar el cliente: {e}",
+            detail=f"Error inesperado: {e}",
         )
 
 
 @router.put("/clientes/{cliente_id}")
 async def actualizar_cliente(
-    id: str,
+    cliente_id: str,
     datos: ActualizarCliente,
     servicio_cliente: ServicioClientePort = Depends(obtener_servicio_cliente),
     status_code=status.HTTP_201_CREATED,
 ):
     try:
         cliente = servicio_cliente.actualizar(
-            id,
+            cliente_id,
             datos.nombre,
             datos.email,
             datos.direccion,
@@ -104,13 +104,25 @@ async def actualizar_cliente(
     except Exception as e:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Error al actualizar el cliente: {e}",
+            detail=f"Error inesperado: {e}",
         )
 
 
 @router.delete("/clientes/{cliente_id}")
 async def eliminar_cliente(
-    request: Request,
+    cliente_id: str,
     servicio_cliente: ServicioClientePort = Depends(obtener_servicio_cliente),
+    status_code=status.HTTP_204_NO_CONTENT,
 ):
-    raise HTTPException(status_code=501, detail="No implementado")
+    try:
+        fueEliminado = servicio_cliente.eliminar_cliente(cliente_id)
+
+        if not fueEliminado:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST)
+
+        return fueEliminado
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error inesperado: {e}",
+        )
