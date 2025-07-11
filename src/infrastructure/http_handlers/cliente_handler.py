@@ -25,6 +25,8 @@ async def crear_cliente(
             direccion=cliente.direccion,
             tipo=cliente.tipo,
         )
+        print(nuevo_cliente.nombre)
+
         return nuevo_cliente
     except Exception as e:
         raise HTTPException(
