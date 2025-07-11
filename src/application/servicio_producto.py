@@ -12,7 +12,7 @@ class ServicioProducto(ServicioProductoPort):
     def crear_producto(
         self, nombre: str, precio: float, stock: int
     ) -> Optional[Producto]:
-        nuevo_producto = self.repositorio_producto.crear_producto(nombre, precio)
+        nuevo_producto = self.repositorio_producto.crear_producto(nombre, precio, stock)
         return nuevo_producto
 
     def obtener_productos(self) -> List[Producto]:
@@ -24,10 +24,14 @@ class ServicioProducto(ServicioProductoPort):
         return producto
 
     def actualizar_producto(
-        self, id: int, nombre: Optional[str], precio: Optional[float]
+        self,
+        id: int,
+        nombre: Optional[str],
+        precio: Optional[float],
+        stock: Optional[int],
     ):
         producto_actualizado = self.repositorio_producto.actualizar_producto(
-            id, nombre, precio
+            id, nombre, precio, stock
         )
         return producto_actualizado
 

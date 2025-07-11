@@ -23,9 +23,12 @@ class RepositorioProductoInMemory(RepositorioProducto):
         producto = next((p for p in self.productos if p.id == id_producto), None)
         return producto
 
-    # TODO: agregar stock
     def actualizar_producto(
-        self, id: int, nombre: Optional[str], precio: Optional[float]
+        self,
+        id: int,
+        nombre: Optional[str],
+        precio: Optional[float],
+        stock: Optional[int],
     ) -> Optional[Producto]:
         producto = next((p for p in self.productos if p.id == id), None)
 
@@ -36,6 +39,8 @@ class RepositorioProductoInMemory(RepositorioProducto):
             producto.nombre = nombre
         if precio is not None:
             producto.precio = precio
+        if stock is not None:
+            producto.stock = stock
 
         return producto
 

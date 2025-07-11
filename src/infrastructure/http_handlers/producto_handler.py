@@ -17,7 +17,9 @@ async def crear_producto(
     producto: CrearProducto,
     servicio_producto: ServicioProductoPort = Depends(obtener_servicio_prodcuto),
 ):
-    nuevo_producto = servicio_producto.crear_producto(producto.nombre, producto.precio)
+    nuevo_producto = servicio_producto.crear_producto(
+        producto.nombre, producto.precio, producto.stock
+    )
     return nuevo_producto
 
 
@@ -45,7 +47,7 @@ async def actualizar_producto(
     servicio_producto: ServicioProductoPort = Depends(obtener_servicio_prodcuto),
 ):
     producto_actualizado = servicio_producto.actualizar_producto(
-        producto_id, producto.nombre, producto.precio
+        producto_id, producto.nombre, producto.precio, producto.stock
     )
     return producto_actualizado
 
