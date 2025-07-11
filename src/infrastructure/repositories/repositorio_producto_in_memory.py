@@ -1,4 +1,3 @@
-from abc import ABC, abstractmethod
 from typing import List, Optional
 
 from src.domain.repositories.repositorio_producto import RepositorioProducto
@@ -10,8 +9,8 @@ class RepositorioProductoInMemory(RepositorioProducto):
         self.productos = []
         self.siguiente_id = 1
 
-    def crear_producto(self, nombre: str, precio: float) -> None:
-        nuevo_producto = Producto(self.siguiente_id, nombre, precio)
+    def crear_producto(self, nombre: str, precio: float, stock: int) -> None:
+        nuevo_producto = Producto(self.siguiente_id, nombre, precio, stock)
         self.productos.append(nuevo_producto)
         self.siguiente_id += 1
 
@@ -24,6 +23,7 @@ class RepositorioProductoInMemory(RepositorioProducto):
         producto = next((p for p in self.productos if p.id == id_producto), None)
         return producto
 
+    # TODO: agregar stock
     def actualizar_producto(
         self, id: int, nombre: Optional[str], precio: Optional[float]
     ) -> Optional[Producto]:
