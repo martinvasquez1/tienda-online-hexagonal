@@ -4,6 +4,10 @@ from src.infrastructure.dependencies.dependencias_pedido import (
     obtener_servicio_pedido,
 )
 from src.application.servicio_pedido_port import ServicioPedidoPort
+from src.infrastructure.http_handlers.exceptions.exceptions_cliente import (
+    ClienteNoEncontrado,
+)
+
 
 router = APIRouter()
 
@@ -13,8 +17,11 @@ async def crear_pedido(
     cliente_id: int,
     servicio_pedido: ServicioPedidoPort = Depends(obtener_servicio_pedido),
 ):
-    nuevo_pedido = servicio_pedido.crear_pedido(cliente_id)
-    return nuevo_pedido
+    try:
+        nuevo_pedido = servicio_pedido.crear_pedido(cliente_id)
+        return nuevo_pedido
+    except ClienteNoEncontrado as e:
+        raise HTTPException(status_code=404, detail=str(e))
 
 
 @router.get("/pedidos/")

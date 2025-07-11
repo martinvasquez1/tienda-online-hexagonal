@@ -6,7 +6,7 @@ from src.domain.entities.Pedido import Pedido
 
 class RepositorioPedido(ABC):
     @abstractmethod
-    def crear_pedido(self) -> Optional[Pedido]:
+    def crear_pedido(self, cliente_id) -> Optional[Pedido]:
         """Agrega un nuevo pedido al repositorio."""
         pass
 

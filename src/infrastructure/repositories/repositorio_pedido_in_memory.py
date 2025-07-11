@@ -10,10 +10,8 @@ class RepositorioPedidoInMemory(RepositorioPedido):
         self.pedidos = []
         self.siguiente_id = 1
 
-    def crear_pedido(self) -> Optional[Pedido]:
-        # TODO: Dependiendo del tipo de usuario instanciar una clase distinta.
-        # De momento se retornara un usuario estandar.
-        nuevo_pedido = PedidoEstandar(self.siguiente_id)
+    def crear_pedido(self, cliente_id: str) -> Optional[Pedido]:
+        nuevo_pedido = PedidoEstandar(self.siguiente_id, cliente_id)
         return nuevo_pedido
 
     def obtener_pedidos(self) -> List[Pedido]:

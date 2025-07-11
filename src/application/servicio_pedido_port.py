@@ -7,7 +7,7 @@ from src.domain.entities.Pedido import Pedido
 
 class ServicioPedidoPort(ABC):
     @abstractmethod
-    def crear_pedido(self, usuario_id) -> Optional[Pedido]:
+    def crear_pedido(self, cliente_id) -> Optional[Pedido]:
         """Registra un nuevo pedido y devuelve el objeto Pedido creado."""
         pass
 

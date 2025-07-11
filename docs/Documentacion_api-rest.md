@@ -8,8 +8,8 @@ La API de UVShop sigue los principios de diseño REST y permite la gestión de *
 
 ### Crear Producto
 
-- **Endpoint:** `/usuarios/{usuario_id}/productos`  
-- **Método HTTP:** `POST`  
+- **Endpoint:** `/usuarios/{usuario_id}/productos`
+- **Método HTTP:** `POST`
 - **Descripción:** Crea un nuevo producto.
 
 #### Cuerpo de la solicitud:
@@ -44,8 +44,8 @@ La API de UVShop sigue los principios de diseño REST y permite la gestión de *
 
 ### Obtener Producto
 
-- **Endpoint:** `/productos/{producto_id}`  
-- **Método HTTP:** `GET`  
+- **Endpoint:** `/productos/{producto_id}`
+- **Método HTTP:** `GET`
 - **Descripción:** Recupera los detalles de un producto específico.
 
 #### Respuestas:
@@ -77,8 +77,8 @@ La API de UVShop sigue los principios de diseño REST y permite la gestión de *
 
 ### Listar Productos
 
-- **Endpoint:** `/productos`  
-- **Método HTTP:** `GET`  
+- **Endpoint:** `/productos`
+- **Método HTTP:** `GET`
 - **Descripción:** Lista todos los productos disponibles.
 
 #### Respuesta:
@@ -109,8 +109,8 @@ La API de UVShop sigue los principios de diseño REST y permite la gestión de *
 
 ### Actualizar Producto
 
-- **Endpoint:** `/productos/{producto_id}`  
-- **Método HTTP:** `PUT`  
+- **Endpoint:** `/productos/{producto_id}`
+- **Método HTTP:** `PUT`
 - **Descripción:** Actualiza los detalles de un producto.
 
 #### Cuerpo:
@@ -140,14 +140,14 @@ La API de UVShop sigue los principios de diseño REST y permite la gestión de *
 ```
 
 - `404 Not Found`  
-[ ]
+  [ ]
 
 ---
 
 ### Eliminar Producto
 
-- **Endpoint:** `/productos/{producto_id}`  
-- **Método HTTP:** `DELETE`  
+- **Endpoint:** `/productos/{producto_id}`
+- **Método HTTP:** `DELETE`
 - **Descripción:** Elimina un producto existente.
 
 #### Respuestas:
@@ -167,17 +167,19 @@ La API de UVShop sigue los principios de diseño REST y permite la gestión de *
 ```
 
 - `404 Not Found`
+
 ```json
- null
+null
 ```
+
 ---
 
 ## 2. Gestión de Clientes
 
 ### Crear Cliente
 
-- **Endpoint:** `/clientes`  
-- **Método HTTP:** `POST`  
+- **Endpoint:** `/clientes`
+- **Método HTTP:** `POST`
 - **Descripción:** Registra un nuevo cliente.
 
 #### Cuerpo:
@@ -211,26 +213,26 @@ La API de UVShop sigue los principios de diseño REST y permite la gestión de *
 
 ### Obtener Cliente
 
-- **Endpoint:** `/clientes/{cliente_id}`  
-- **Método HTTP:** `GET`  
+- **Endpoint:** `/clientes/{cliente_id}`
+- **Método HTTP:** `GET`
 - **Descripción:** Detalles de un cliente específico.
 
 #### Respuestas:
 
-- `200 OK`  
+- `200 OK`
 - `404 Not Found`
 
 ---
 
 ### Eliminar Cliente
 
-- **Endpoint:** `/clientes/{cliente_id}`  
-- **Método HTTP:** `DELETE`  
+- **Endpoint:** `/clientes/{cliente_id}`
+- **Método HTTP:** `DELETE`
 - **Descripción:** Elimina un cliente existente.
 
 #### Respuestas:
 
-- `200 OK`  
+- `200 OK`
 - `404 Not Found`
 
 ---
@@ -239,15 +241,14 @@ La API de UVShop sigue los principios de diseño REST y permite la gestión de *
 
 ### Crear Pedido
 
-- **Endpoint:** `/pedidos`  
-- **Método HTTP:** `POST`  
+- **Endpoint:** `/clientes/{cliente_id}/pedidos`
+- **Método HTTP:** `POST`
 - **Descripción:** Realiza un pedido y descuenta el stock.
 
 #### Cuerpo:
 
 ```json
 {
-  "cliente_id": "cli_456",
   "tipo_pedido": "Estandar",
   "productos": [
     {
@@ -281,23 +282,23 @@ La API de UVShop sigue los principios de diseño REST y permite la gestión de *
 }
 ```
 
-- `400 Bad Request`  
+- `400 Bad Request`
 - `404 Not Found`
 
 ---
 
 ### Obtener Pedido
 
-- **Endpoint:** `/pedidos/{pedido_id}`  
-- **Método HTTP:** `GET`  
+- **Endpoint:** `/pedidos/{pedido_id}`
+- **Método HTTP:** `GET`
 - **Descripción:** Detalles de un pedido por ID.
 
 ---
 
 ### Actualizar Estado de Pedido
 
-- **Endpoint:** `/pedidos/{pedido_id}/estado`  
-- **Método HTTP:** `PUT`  
+- **Endpoint:** `/pedidos/{pedido_id}/estado`
+- **Método HTTP:** `PUT`
 - **Descripción:** Cambia el estado del pedido (ej. a pagado).
 
 #### Cuerpo:
@@ -310,22 +311,22 @@ La API de UVShop sigue los principios de diseño REST y permite la gestión de *
 
 #### Respuestas:
 
-- `200 OK`  
-- `404 Not Found`  
+- `200 OK`
+- `404 Not Found`
 - `400 Bad Request`
 
 ---
 
 ### Cancelar Pedido
 
-- **Endpoint:** `/pedidos/{pedido_id}`  
-- **Método HTTP:** `DELETE`  
+- **Endpoint:** `/pedidos/{pedido_id}`
+- **Método HTTP:** `DELETE`
 - **Descripción:** Cancela un pedido.
 
 #### Respuestas:
 
-- `200 OK`  
-- `404 Not Found`  
+- `200 OK`
+- `404 Not Found`
 - `400 Bad Request`
 
 ---
@@ -334,8 +335,8 @@ La API de UVShop sigue los principios de diseño REST y permite la gestión de *
 
 ### Procesar Pago
 
-- **Endpoint:** `/pagos`  
-- **Método HTTP:** `POST`  
+- **Endpoint:** `/pagos`
+- **Método HTTP:** `POST`
 - **Descripción:** Procesa el pago de un pedido.
 
 #### Cuerpo:
@@ -368,7 +369,7 @@ La API de UVShop sigue los principios de diseño REST y permite la gestión de *
 }
 ```
 
-- `400 Bad Request`  
+- `400 Bad Request`
 - `404 Not Found`
 
 ---
