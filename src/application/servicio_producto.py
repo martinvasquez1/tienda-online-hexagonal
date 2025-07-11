@@ -9,8 +9,9 @@ class ServicioProducto(ServicioProductoPort):
     def __init__(self, repositorio_producto: RepositorioProducto):
         self.repositorio_producto = repositorio_producto
 
-    def registrar_producto(self, precio: float) -> Optional[Producto]:
-        return "Este método registrará un nuevo producto y devolverá el objeto Producto creado."
+    def crear_producto(self, nombre: str, precio: float) -> Optional[Producto]:
+        nuevo_producto = self.repositorio_producto.crear_producto(nombre, precio)
+        return nuevo_producto
 
     def listar_todos_los_productos(self) -> List[Producto]:
         return "Este método devolverá una lista de todos los productos registrados."

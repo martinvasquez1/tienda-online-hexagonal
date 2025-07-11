@@ -6,8 +6,16 @@ from src.domain.entities.Producto import Producto
 
 
 class RepositorioProductoInMemory(RepositorioProducto):
-    def agregar(self, producto: Producto) -> None:
-        return "Este método agregará un nuevo producto al repositorio."
+    def __init__(self):
+        self.productos = []
+        self.siguiente_id = 1
+
+    def crear_producto(self, nombre: str, precio: float) -> None:
+        nuevo_producto = Producto(self.siguiente_id, nombre, precio)
+        self.productos.append(nuevo_producto)
+        self.siguiente_id += 1
+
+        return nuevo_producto
 
     def obtener(self, id_producto) -> Optional[Producto]:
         return "Este método obtendrá un producto por su ID."

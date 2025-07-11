@@ -4,16 +4,18 @@ from src.infrastructure.dependencies.dependencias_producto import (
     obtener_servicio_prodcuto,
 )
 from src.application.servicio_producto_port import ServicioProductoPort
+from src.infrastructure.http_handlers.models.producto import Producto
 
 router = APIRouter()
 
 
 @router.post("/productos/")
 async def crear_producto(
-    request: Request,
+    producto: Producto,
     servicio_producto: ServicioProductoPort = Depends(obtener_servicio_prodcuto),
 ):
-    raise HTTPException(status_code=501, detail="No implementado")
+    nuevo_producto = servicio_producto.crear_producto(producto.nombre, producto.precio)
+    return nuevo_producto
 
 
 @router.get("/productos/")

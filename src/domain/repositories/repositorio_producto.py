@@ -6,7 +6,7 @@ from src.domain.entities.Producto import Producto
 
 class RepositorioProducto(ABC):
     @abstractmethod
-    def agregar(self, producto: Producto) -> None:
+    def crear_producto(self, nombre: str, precio: float) -> None:
         """Agrega un nuevo producto al repositorio."""
         pass
 
