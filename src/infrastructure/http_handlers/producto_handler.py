@@ -4,14 +4,17 @@ from src.infrastructure.dependencies.dependencias_producto import (
     obtener_servicio_prodcuto,
 )
 from src.application.servicio_producto_port import ServicioProductoPort
-from src.infrastructure.http_handlers.models.producto import Producto
+from src.infrastructure.http_handlers.models.producto import (
+    CrearProducto,
+    ActualizarProducto,
+)
 
 router = APIRouter()
 
 
 @router.post("/productos/")
 async def crear_producto(
-    producto: Producto,
+    producto: CrearProducto,
     servicio_producto: ServicioProductoPort = Depends(obtener_servicio_prodcuto),
 ):
     nuevo_producto = servicio_producto.crear_producto(producto.nombre, producto.precio)
@@ -37,10 +40,13 @@ async def obtener_producto(
 
 @router.put("/productos/{producto_id}")
 async def actualizar_producto(
-    request: Request,
+    producto: ActualizarProducto,
     servicio_producto: ServicioProductoPort = Depends(obtener_servicio_prodcuto),
 ):
-    raise HTTPException(status_code=501, detail="No implementado")
+    producto_actualizado = servicio_producto.actualizar_producto(
+        producto.id, producto.nombre, producto.precio
+    )
+    return producto_actualizado
 
 
 @router.delete("/productos/{producto_id}")

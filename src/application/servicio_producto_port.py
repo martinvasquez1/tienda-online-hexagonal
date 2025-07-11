@@ -21,6 +21,13 @@ class ServicioProductoPort(ABC):
         pass
 
     @abstractmethod
+    def actualizar_producto(
+        self, id: int, nombre: str, precio: float
+    ) -> Optional[Producto]:
+        """Actualiza un producto por su ID y devuelve el objeto Producto si existe."""
+        pass
+
+    @abstractmethod
     def eliminar_producto(self, id: int) -> bool:
         """Elimina un producto por su ID y devuelve True si se eliminó con éxito."""
         pass

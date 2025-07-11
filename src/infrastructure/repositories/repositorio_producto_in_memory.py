@@ -24,8 +24,20 @@ class RepositorioProductoInMemory(RepositorioProducto):
         producto = next((p for p in self.productos if p.id == id_producto), None)
         return producto
 
-    def actualizar(self, producto: Producto) -> None:
-        return "Este método actualizará la información de un producto existente."
+    def actualizar_producto(
+        self, id: int, nombre: Optional[str], precio: Optional[float]
+    ) -> Optional[Producto]:
+        producto = next((p for p in self.productos if p.id == id), None)
+
+        if not producto:
+            return None
+
+        if nombre is not None:
+            producto.nombre = nombre
+        if precio is not None:
+            producto.precio = precio
+
+        return producto
 
     def eliminar(self, id_producto) -> None:
         return "Este método eliminará un producto del repositorio por su ID."

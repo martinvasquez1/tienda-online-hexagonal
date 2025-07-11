@@ -21,5 +21,8 @@ class ServicioProducto(ServicioProductoPort):
         producto = self.repositorio_producto.obtener_producto(id)
         return producto
 
+    def actualizar_producto(self, id: int, nombre: str, precio: float):
+        pass
+
     def eliminar_producto(self, id: int) -> bool:
         return "Este método eliminará un producto por su ID y devolverá True si se eliminó con éxito."

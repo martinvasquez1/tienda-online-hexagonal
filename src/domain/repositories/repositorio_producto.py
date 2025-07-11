@@ -21,7 +21,9 @@ class RepositorioProducto(ABC):
         pass
 
     @abstractmethod
-    def actualizar(self, producto: Producto) -> None:
+    def actualizar_producto(
+        self, id: int, nombre: str, precio: float
+    ) -> Optional[Producto]:
         """Actualiza la información de un producto existente."""
         pass
 
