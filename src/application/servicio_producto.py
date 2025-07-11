@@ -9,7 +9,9 @@ class ServicioProducto(ServicioProductoPort):
     def __init__(self, repositorio_producto: RepositorioProducto):
         self.repositorio_producto = repositorio_producto
 
-    def crear_producto(self, nombre: str, precio: float) -> Optional[Producto]:
+    def crear_producto(
+        self, nombre: str, precio: float, stock: int
+    ) -> Optional[Producto]:
         nuevo_producto = self.repositorio_producto.crear_producto(nombre, precio)
         return nuevo_producto
 
