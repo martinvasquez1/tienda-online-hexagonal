@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import List, Optional
 
-from src.domain.entities.Cliente import Cliente, TipoCliente
+from src.domain.entities.Cliente import Cliente
 
 
 class RepositorioCliente(ABC):
@@ -16,7 +16,7 @@ class RepositorioCliente(ABC):
         pass
 
     @abstractmethod
-    def listar(self) -> List[Cliente]:
+    def obtener_clientes(self) -> List[Cliente]:
         """Lista todos los clientes en el repositorio."""
         pass
 

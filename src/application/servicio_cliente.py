@@ -12,13 +12,30 @@ class ServicioCliente(ServicioClientePort):
     def registrar_cliente(
         self, nombre: str, email: str, direccion: str, tipo: TipoCliente
     ) -> Optional[Cliente]:
-        return "Este método registrará un nuevo cliente y devolverá el objeto Cliente creado."
+        nuevo_cliente = self.repositorio_cliente.agregar
+        return nuevo_cliente
 
-    def listar_todos_los_clientes(self) -> List[Cliente]:
-        return "Este método devolverá una lista de todos los clientes registrados."
+    def obtener_clientes(self) -> List[Cliente]:
+        clientes = self.repositorio_cliente.obtener()
+        return clientes
 
-    def buscar_cliente_por_id(self, id) -> Optional[Cliente]:
-        return "Este método buscará un cliente por su ID y devolverá el objeto Cliente si se encuentra."
+    def obtener(self, id) -> Optional[Cliente]:
+        cliente = self.repositorio_cliente.obtener(id)
+        return cliente
+
+    def actualizar(
+        self,
+        id: int,
+        nombre: Optional[str],
+        email: Optional[str],
+        direccion: Optional[str],
+        tipo: Optional[TipoCliente],
+    ) -> Optional[Cliente]:
+        cliente = self.repositorio_cliente.actualizar(
+            id, nombre, email, direccion, tipo
+        )
+        return cliente
 
     def eliminar_cliente(self, id) -> bool:
-        return "Este método eliminará un cliente por su ID y devolverá True si se eliminó con éxito."
+        fueEliminado = self.repositorio_cliente.eliminar(id)
+        return fueEliminado
