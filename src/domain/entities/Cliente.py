@@ -9,8 +9,10 @@ class TipoCliente(Enum):
 
 
 class Cliente:
-    def __init__(self, nombre: str, email: str, direccion: str, tipo: TipoCliente):
-        self.id = uuid4()
+    def __init__(
+        self, id: int, nombre: str, email: str, direccion: str, tipo: TipoCliente
+    ):
+        self.id = id
         self.nombre = nombre
         self.email = email
         self.direccion = direccion

@@ -5,14 +5,21 @@ from src.domain.entities.Cliente import Cliente, TipoCliente
 
 
 class RepositorioClienteInMemory(RepositorioCliente):
+    _instance = None
+
     def __init__(self):
         self.clientes = []
         self.siguiente_id = 1
 
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            cls._instance = super(RepositorioClienteInMemory, cls).__new__(cls)
+        return cls._instance
+
     def agregar(
         self, nombre: str, email: str, direccion: str, tipo: TipoCliente
     ) -> Cliente:
-        nuevo_cliente = Cliente(nombre, email, direccion, tipo)
+        nuevo_cliente = Cliente(self.siguiente_id, nombre, email, direccion, tipo)
         self.clientes.append(nuevo_cliente)
         self.siguiente_id += 1
 
@@ -22,7 +29,9 @@ class RepositorioClienteInMemory(RepositorioCliente):
         return self.clientes
 
     def obtener(self, id_cliente) -> Optional[Cliente]:
-        cliente = next((c for c in self.clientes if c.id == id_cliente), None)
+        cliente = next(
+            (cliente for cliente in self.clientes if cliente.id == id_cliente), None
+        )
         return cliente
 
     def actualizar(
