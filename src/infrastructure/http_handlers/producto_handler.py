@@ -40,11 +40,12 @@ async def obtener_producto(
 
 @router.put("/productos/{producto_id}")
 async def actualizar_producto(
+    producto_id: int,
     producto: ActualizarProducto,
     servicio_producto: ServicioProductoPort = Depends(obtener_servicio_prodcuto),
 ):
     producto_actualizado = servicio_producto.actualizar_producto(
-        producto.id, producto.nombre, producto.precio
+        producto_id, producto.nombre, producto.precio
     )
     return producto_actualizado
 

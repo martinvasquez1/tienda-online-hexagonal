@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Any
+from typing import Any, Optional
 
 
 class CrearProducto(BaseModel):
@@ -8,6 +8,5 @@ class CrearProducto(BaseModel):
 
 
 class ActualizarProducto(BaseModel):
-    id: int
-    nombre: str
-    precio: float
+    nombre: Optional[str] = None
+    precio: Optional[float] = None
