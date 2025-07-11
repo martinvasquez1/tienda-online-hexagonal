@@ -46,8 +46,11 @@ class ServicioProducto(ServicioProductoPort):
         )
         return nuevo_producto
 
-    def obtener_productos(self) -> List[Producto]:
-        productos = self.repositorio_producto.obtener_productos()
+    def obtener_productos(self, cliente_id, pedido_id) -> List[Producto]:
+        self.check_cliente(cliente_id)
+        self.check_pedido(pedido_id)
+
+        productos = self.repositorio_producto.obtener_productos(pedido_id)
         return productos
 
     def obtener_producto(self, id: int) -> Optional[Producto]:

@@ -18,8 +18,8 @@ class RepositorioProductoInMemory(RepositorioProducto):
 
         return nuevo_producto
 
-    def obtener_productos(self) -> List[Producto]:
-        return self.productos
+    def obtener_productos(self, pedido_id: int) -> List[Producto]:
+        return [p for p in self.productos if p.pedido_id == pedido_id]
 
     def obtener_producto(self, id_producto) -> Optional[Producto]:
         producto = next((p for p in self.productos if p.id == id_producto), None)

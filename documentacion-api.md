@@ -25,20 +25,38 @@ La API de UVShop sigue los principios de diseño REST y permite la gestión de *
 #### Respuestas:
 
 - `201 Created`
+- `422 Unprocessable Entity`: Error de validación.
+
+---
+
+### Listar Productos
+
+- **Endpoint:** `/clientes/{cliente_id}/pedidos/{pedido_id}/productos`
+- **Método HTTP:** `GET`
+- **Descripción:** Lista todos los productos de un pedido.
+
+#### Respuesta:
+
+- `200 OK`
 
 ```json
-{
-  "status": "success",
-  "data": {
-    "id": "001",
-    "nombre": "Laptop",
-    "precio": 999.99,
-    "stock": 50
+[
+  {
+    "id": 1,
+    "nombre": "1984",
+    "precio": 11,
+    "stock": 3,
+    "pedido_id": 1
+  },
+  {
+    "id": 2,
+    "nombre": "Fahrenheit 451",
+    "precio": 11,
+    "stock": 5,
+    "pedido_id": 1
   }
-}
+]
 ```
-
-- `422 Unprocessable Entity`: Error de validación.
 
 ---
 
@@ -70,38 +88,6 @@ La API de UVShop sigue los principios de diseño REST y permite la gestión de *
 {
   "status": "fail",
   "detail": "Producto con ID {producto_id} no encontrado."
-}
-```
-
----
-
-### Listar Productos
-
-- **Endpoint:** `/productos`
-- **Método HTTP:** `GET`
-- **Descripción:** Lista todos los productos disponibles.
-
-#### Respuesta:
-
-- `200 OK`
-
-```json
-{
-  "status": "success",
-  "data": [
-    {
-      "id": "123",
-      "nombre": "Laptop",
-      "precio": 999.99,
-      "stock": 50
-    },
-    {
-      "id": "345",
-      "nombre": "Laptop",
-      "precio": 999.99,
-      "stock": 50
-    }
-  ]
 }
 ```
 

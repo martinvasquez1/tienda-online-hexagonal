@@ -36,12 +36,19 @@ async def crear_producto(
         raise HTTPException(status_code=404, detail=str(e))
 
 
-@router.get("/productos/")
+@router.get("/clientes/{cliente_id}/pedidos/{pedido_id}/productos")
 async def obtener_productos(
+    cliente_id: int,
+    pedido_id: int,
     servicio_producto: ServicioProductoPort = Depends(obtener_servicio_prodcuto),
 ):
-    productos = servicio_producto.obtener_productos()
-    return productos
+    try:
+        productos = servicio_producto.obtener_productos(cliente_id, pedido_id)
+        return productos
+    except ClienteNoEncontrado as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    except PedidoNoEncontrado as e:
+        raise HTTPException(status_code=404, detail=str(e))
 
 
 @router.get("/productos/{producto_id}")

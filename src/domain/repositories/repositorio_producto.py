@@ -11,7 +11,7 @@ class RepositorioProducto(ABC):
         pass
 
     @abstractmethod
-    def obtener_productos(self) -> List[Producto]:
+    def obtener_productos(self, pedido_id: int) -> List[Producto]:
         """Lista todos los productos en el repositorio."""
         pass
 
