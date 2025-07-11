@@ -12,6 +12,9 @@ class RepositorioPedidoInMemory(RepositorioPedido):
 
     def crear_pedido(self, cliente_id: str) -> Optional[Pedido]:
         nuevo_pedido = PedidoEstandar(self.siguiente_id, cliente_id)
+        self.pedidos.append(nuevo_pedido)
+        self.siguiente_id += 1
+
         return nuevo_pedido
 
     def obtener_pedidos(self, cliente_id) -> List[Pedido]:
