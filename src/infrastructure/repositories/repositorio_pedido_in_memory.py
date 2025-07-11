@@ -2,21 +2,28 @@ from abc import ABC, abstractmethod
 from typing import List, Optional
 
 from src.domain.repositories.repositorio_pedido import RepositorioPedido
-from src.domain.entities.Pedido import Pedido
+from src.domain.entities.Pedido import Pedido, PedidoEstandar
 
 
 class RepositorioPedidoInMemory(RepositorioPedido):
-    def agregar(self, pedido: Pedido) -> None:
-        return "Este método agregará un nuevo pedido al repositorio."
+    def __init__(self):
+        self.pedidos = []
+        self.siguiente_id = 1
 
-    def obtener(self, id_pedido) -> Optional[Pedido]:
-        return "Este método obtendrá un pedido por su ID."
+    def crear_pedido(self) -> Optional[Pedido]:
+        # TODO: Dependiendo del tipo de usuario instanciar una clase distinta.
+        # De momento se retornara un usuario estandar.
+        nuevo_pedido = PedidoEstandar(self.siguiente_id)
+        return nuevo_pedido
 
-    def listar(self) -> List[Pedido]:
+    def obtener_pedidos(self) -> List[Pedido]:
         return "Este método listará todos los pedidos en el repositorio."
 
-    def actualizar(self, pedido: Pedido) -> None:
+    def obtener_pedido(self, id_pedido) -> Optional[Pedido]:
+        return "Este método obtendrá un pedido por su ID."
+
+    def actualizar_pedido(self, pedido: Pedido) -> None:
         return "Este método actualizará la información de un pedido existente."
 
-    def eliminar(self, id_pedido) -> None:
+    def eliminar_pedido(self, id_pedido) -> None:
         return "Este método eliminará un pedido del repositorio por su ID."
