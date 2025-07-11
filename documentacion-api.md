@@ -4,63 +4,7 @@ La API de UVShop sigue los principios de diseño REST y permite la gestión de *
 
 ---
 
-## 1. Gestión de Productos
-
-### Crear Producto
-
-- **Endpoint:** `/clientes/{cliente_id}/pedidos/{pedido_id}/productos`
-- **Método HTTP:** `POST`
-- **Descripción:** Crea un nuevo producto para un pedido de un cliente
-
-#### Cuerpo de la solicitud:
-
-```json
-{
-  "nombre": "1984",
-  "precio": 19.99,
-  "stock": 50
-}
-```
-
-#### Respuestas:
-
-- `201 Created`
-- `422 Unprocessable Entity`
-
----
-
-### Listar Productos
-
-- **Endpoint:** `/clientes/{cliente_id}/pedidos/{pedido_id}/productos`
-- **Método HTTP:** `GET`
-- **Descripción:** Lista todos los productos de un pedido.
-
-#### Respuesta:
-
-- `200 OK`
-
-```json
-[
-  {
-    "id": 1,
-    "nombre": "1984",
-    "precio": 19.99,
-    "stock": 3,
-    "pedido_id": 1
-  },
-  {
-    "id": 2,
-    "nombre": "Fahrenheit 451",
-    "precio": 30.0,
-    "stock": 5,
-    "pedido_id": 1
-  }
-]
-```
-
----
-
-## 2. Gestión de Clientes
+## 1. Gestión de Clientes
 
 ### Crear Cliente
 
@@ -123,7 +67,7 @@ La API de UVShop sigue los principios de diseño REST y permite la gestión de *
 
 ---
 
-## 🔹 3. Gestión de Pedidos
+## 🔹 2. Gestión de Pedidos
 
 ### Crear Pedido
 
@@ -196,6 +140,62 @@ La API de UVShop sigue los principios de diseño REST y permite la gestión de *
 - `200 OK`
 - `404 Not Found`
 - `400 Bad Request`
+
+---
+
+## 3. Gestión de Productos
+
+### Crear Producto
+
+- **Endpoint:** `/clientes/{cliente_id}/pedidos/{pedido_id}/productos`
+- **Método HTTP:** `POST`
+- **Descripción:** Crea un nuevo producto para un pedido de un cliente
+
+#### Cuerpo de la solicitud:
+
+```json
+{
+  "nombre": "1984",
+  "precio": 19.99,
+  "stock": 50
+}
+```
+
+#### Respuestas:
+
+- `201 Created`
+- `422 Unprocessable Entity`
+
+---
+
+### Listar Productos
+
+- **Endpoint:** `/clientes/{cliente_id}/pedidos/{pedido_id}/productos`
+- **Método HTTP:** `GET`
+- **Descripción:** Lista todos los productos de un pedido.
+
+#### Respuesta:
+
+- `200 OK`
+
+```json
+[
+  {
+    "id": 1,
+    "nombre": "1984",
+    "precio": 19.99,
+    "stock": 3,
+    "pedido_id": 1
+  },
+  {
+    "id": 2,
+    "nombre": "Fahrenheit 451",
+    "precio": 30.0,
+    "stock": 5,
+    "pedido_id": 1
+  }
+]
+```
 
 ---
 
