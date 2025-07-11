@@ -3,8 +3,10 @@ from typing import List, Optional
 
 from src.domain.repositories.repositorio_pedido import RepositorioPedido
 from src.domain.entities.Pedido import Pedido, PedidoEstandar
+from src.infrastructure.repositories.decorators import singleton
 
 
+@singleton
 class RepositorioPedidoInMemory(RepositorioPedido):
     def __init__(self):
         self.pedidos = []
