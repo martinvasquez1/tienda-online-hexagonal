@@ -12,7 +12,7 @@ class ServicioCliente(ServicioClientePort):
     def registrar_cliente(
         self, nombre: str, email: str, direccion: str, tipo: TipoCliente
     ) -> Optional[Cliente]:
-        nuevo_cliente = self.repositorio_cliente.agregar
+        nuevo_cliente = self.repositorio_cliente.agregar(nombre, email, direccion, tipo)
         return nuevo_cliente
 
     def obtener_clientes(self) -> List[Cliente]:

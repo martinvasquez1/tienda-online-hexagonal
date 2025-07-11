@@ -1,12 +1,14 @@
 from abc import ABC, abstractmethod
 from typing import List, Optional
 
-from src.domain.entities.Cliente import Cliente
+from src.domain.entities.Cliente import Cliente, TipoCliente
 
 
 class RepositorioCliente(ABC):
     @abstractmethod
-    def agregar(self, cliente: Cliente) -> None:
+    def agregar(
+        self, nombre: str, email: str, direccion: str, tipo: TipoCliente
+    ) -> Cliente:
         """Agrega un nuevo cliente al repositorio."""
         pass
 

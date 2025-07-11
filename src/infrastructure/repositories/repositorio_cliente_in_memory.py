@@ -9,8 +9,10 @@ class RepositorioClienteInMemory(RepositorioCliente):
         self.clientes = []
         self.siguiente_id = 1
 
-    def agregar(self, cliente: Cliente) -> None:
-        nuevo_cliente = Cliente()
+    def agregar(
+        self, nombre: str, email: str, direccion: str, tipo: TipoCliente
+    ) -> Cliente:
+        nuevo_cliente = Cliente(nombre, email, direccion, tipo)
         self.clientes.append(nuevo_cliente)
         self.siguiente_id += 1
 
