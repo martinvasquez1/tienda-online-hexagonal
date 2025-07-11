@@ -16,9 +16,9 @@ La API de UVShop sigue los principios de diseño REST y permite la gestión de *
 
 ```json
 {
-  "nombre": "Juan Pérez",
-  "email": "juan.perez@example.com",
-  "direccion": "Calle Falsa 123",
+  "nombre": "pepe",
+  "email": "pepe@pepe.com",
+  "direccion": "Francia",
   "tipo": "nuevo"
 }
 ```
@@ -29,13 +29,11 @@ La API de UVShop sigue los principios de diseño REST y permite la gestión de *
 
 ```json
 {
-  "status": "success",
-  "data": {
-    "id": "456",
-    "nombre": "Juan Pérez",
-    "email": "juan.perez@example.com",
-    "tipo": "nuevo"
-  }
+  "id": 1,
+  "nombre": "pepe",
+  "email": "pepe@pepe.com",
+  "direccion": "Francia",
+  "tipo": "nuevo"
 }
 ```
 
