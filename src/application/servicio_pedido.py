@@ -10,14 +10,21 @@ class ServicioPedido(ServicioPedidoPort):
     def __init__(self, repositorio_pedido: RepositorioPedido):
         self.repositorio_pedido = repositorio_pedido
 
-    def registrar_pedido(self, productos) -> Optional[Pedido]:
-        return "Este método registrará un nuevo pedido y devolverá el objeto Pedido creado."
+    def crear_pedido(self, usuario_id) -> Optional[Pedido]:
+        nuevo_pedido = self.repositorio_pedido.crear_pedido()
+        # TOOD: Hacer que el usuario tengo un pedido. Actualmente la clase Cliente
+        # no esta completada
 
-    def listar_todos_los_pedidos(self) -> List[Pedido]:
+        return nuevo_pedido
+
+    def obtener_pedidos(self) -> List[Pedido]:
         return "Este método devolverá una lista de todos los pedidos registrados."
 
-    def buscar_pedido_por_id(self, id: UUID) -> Optional[Pedido]:
+    def obtener_pedido(self, id: str) -> Optional[Pedido]:
         return "Este método buscará un pedido por su ID y devolverá el objeto Pedido si se encuentra."
 
-    def eliminar_pedido(self, id: UUID) -> bool:
+    def actualizar_pedido(self, id: str) -> Optional[Pedido]:
+        return "Este método actualizara un pedido por su ID y devolverá el objeto Pedido si se encuentra."
+
+    def eliminar_pedido(self, id: str) -> bool:
         return "Este método eliminará un pedido por su ID y devolverá True si se eliminó con éxito."

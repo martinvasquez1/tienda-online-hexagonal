@@ -2,10 +2,26 @@
 
 Este repositorio implementa una tienda con pedidos y productos utilizando arquitectura hexagonal. Esta estructura facilitará la escalabilidad y el mantenimiento del sistema.
 
+## Estructura de entidades
+
+Esto sección es temporal pero tenganlo en cuenta.
+
+> Un Cliente **tiene** Pedidos, y un Pedido **tiene** Productos. Esto esta siendo representado como un arreglo en las clases del dominio.
+
 ## Ejectuar
+
+### Empezar app
 
 ```bash
 uvicorn src.main:app --reload
+```
+
+### Pruebas
+
+Actualmente el programa solo cuenta con pruebas de e2e.
+
+```bash
+pytest
 ```
 
 ## Instalar dependencias
