@@ -4,8 +4,18 @@ Este repositorio implementa una tienda con pedidos y productos utilizando arquit
 
 ## Ejectuar
 
+### Empezar app
+
 ```bash
 uvicorn src.main:app --reload
+```
+
+### Pruebas
+
+Actualmente el programa solo cuenta con pruebas de e2e.
+
+```bash
+pytest
 ```
 
 ## Instalar dependencias
