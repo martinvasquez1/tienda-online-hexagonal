@@ -20,10 +20,10 @@ async def crear_producto(
 
 @router.get("/productos/")
 async def obtener_productos(
-    request: Request,
     servicio_producto: ServicioProductoPort = Depends(obtener_servicio_prodcuto),
 ):
-    raise HTTPException(status_code=501, detail="No implementado")
+    productos = servicio_producto.obtener_productos()
+    return productos
 
 
 @router.get("/productos/{producto_id}")

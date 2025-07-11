@@ -17,11 +17,11 @@ class RepositorioProductoInMemory(RepositorioProducto):
 
         return nuevo_producto
 
+    def obtener_productos(self) -> List[Producto]:
+        return self.productos
+
     def obtener(self, id_producto) -> Optional[Producto]:
         return "Este método obtendrá un producto por su ID."
-
-    def listar(self) -> List[Producto]:
-        return "Este método listará todos los productos en el repositorio."
 
     def actualizar(self, producto: Producto) -> None:
         return "Este método actualizará la información de un producto existente."

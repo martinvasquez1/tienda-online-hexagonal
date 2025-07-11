@@ -11,13 +11,13 @@ class RepositorioProducto(ABC):
         pass
 
     @abstractmethod
-    def obtener(self, id_producto) -> Optional[Producto]:
-        """Obtiene un producto por su ID."""
+    def obtener_productos(self) -> List[Producto]:
+        """Lista todos los productos en el repositorio."""
         pass
 
     @abstractmethod
-    def listar(self) -> List[Producto]:
-        """Lista todos los productos en el repositorio."""
+    def obtener(self, id_producto) -> Optional[Producto]:
+        """Obtiene un producto por su ID."""
         pass
 
     @abstractmethod

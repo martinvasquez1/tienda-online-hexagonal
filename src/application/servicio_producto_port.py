@@ -11,7 +11,7 @@ class ServicioProductoPort(ABC):
         pass
 
     @abstractmethod
-    def listar_todos_los_productos(self) -> List[Producto]:
+    def obtener_productos(self) -> List[Producto]:
         """Devuelve una lista de todos los productos registrados."""
         pass
 

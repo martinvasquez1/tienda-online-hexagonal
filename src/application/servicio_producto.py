@@ -13,8 +13,9 @@ class ServicioProducto(ServicioProductoPort):
         nuevo_producto = self.repositorio_producto.crear_producto(nombre, precio)
         return nuevo_producto
 
-    def listar_todos_los_productos(self) -> List[Producto]:
-        return "Este método devolverá una lista de todos los productos registrados."
+    def obtener_productos(self) -> List[Producto]:
+        productos = self.repositorio_producto.obtener_productos()
+        return productos
 
     def buscar_producto_por_id(self, id: int) -> Optional[Producto]:
         return "Este método buscará un producto por su ID y devolverá el objeto Producto si se encuentra."
