@@ -14,11 +14,12 @@ class RepositorioPedidoInMemory(RepositorioPedido):
         nuevo_pedido = PedidoEstandar(self.siguiente_id, cliente_id)
         return nuevo_pedido
 
-    def obtener_pedidos(self) -> List[Pedido]:
-        return "Este método listará todos los pedidos en el repositorio."
+    def obtener_pedidos(self, cliente_id) -> List[Pedido]:
+        pedidos_cliente = [pedido for p in self.pedidos if p.cliente_id == cliente_id]
+        return pedidos_cliente
 
-    def obtener_pedido(self, id_pedido) -> Optional[Pedido]:
-        return "Este método obtendrá un pedido por su ID."
+    def obtener_pedido(self, pedido_id) -> Optional[Pedido]:
+        return next((p for p in self.pedidos if p.id == pedido_id), None)
 
     def actualizar_pedido(self, pedido: Pedido) -> None:
         return "Este método actualizará la información de un pedido existente."

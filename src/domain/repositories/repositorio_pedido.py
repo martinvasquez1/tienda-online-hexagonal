@@ -11,12 +11,12 @@ class RepositorioPedido(ABC):
         pass
 
     @abstractmethod
-    def obtener_pedidos(self) -> List[Pedido]:
+    def obtener_pedidos(self, cliente_id) -> List[Pedido]:
         """Lista todos los pedidos en el repositorio."""
         pass
 
     @abstractmethod
-    def obtener_pedido(self, id_pedido) -> Optional[Pedido]:
+    def obtener_pedido(self, cliente_id, pedido_id) -> Optional[Pedido]:
         """Obtiene un pedido por su ID."""
         pass
 

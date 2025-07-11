@@ -1,11 +1,15 @@
 from fastapi import APIRouter, HTTPException, Depends, Request
 
+from src.application.servicio_pedido_port import ServicioPedidoPort
 from src.infrastructure.dependencies.dependencias_pedido import (
     obtener_servicio_pedido,
 )
-from src.application.servicio_pedido_port import ServicioPedidoPort
+
 from src.infrastructure.http_handlers.exceptions.exceptions_cliente import (
     ClienteNoEncontrado,
+)
+from src.infrastructure.http_handlers.exceptions.exceptions_pedido import (
+    PedidoNoEncontrado,
 )
 
 
@@ -24,20 +28,31 @@ async def crear_pedido(
         raise HTTPException(status_code=404, detail=str(e))
 
 
-@router.get("/pedidos/")
+@router.get("/clientes/{cliente_id}/pedidos")
 async def obtener_pedidos(
-    request: Request,
+    cliente_id: int,
     servicio_pedido: ServicioPedidoPort = Depends(obtener_servicio_pedido),
 ):
-    raise HTTPException(status_code=501, detail="No implementado")
+    try:
+        pedidos = servicio_pedido.obtener_pedidos(cliente_id)
+        return pedidos
+    except ClienteNoEncontrado as e:
+        raise HTTPException(status_code=404, detail=str(e))
 
 
-@router.get("/pedidos/{pedido_id}")
+@router.get("/clientes/{cliente_id}/pedidos/{pedido_id}")
 async def obtener_pedido(
-    request: Request,
+    cliente_id: int,
+    pedido_id: int,
     servicio_pedido: ServicioPedidoPort = Depends(obtener_servicio_pedido),
 ):
-    raise HTTPException(status_code=501, detail="No implementado")
+    try:
+        pedido = servicio_pedido.obtener_pedido(cliente_id, pedido_id)
+        return pedido
+    except ClienteNoEncontrado as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    except PedidoNoEncontrado as e:
+        raise HTTPException(status_code=404, detail=str(e))
 
 
 @router.put("/pedidos/{pedido_id}")

@@ -9,6 +9,9 @@ from src.domain.entities.Pedido import Pedido
 from src.infrastructure.http_handlers.exceptions.exceptions_cliente import (
     ClienteNoEncontrado,
 )
+from src.infrastructure.http_handlers.exceptions.exceptions_pedido import (
+    PedidoNoEncontrado,
+)
 
 
 class ServicioPedido(ServicioPedidoPort):
@@ -20,20 +23,31 @@ class ServicioPedido(ServicioPedidoPort):
         self.repositorio_pedido = repositorio_pedido
         self.repositorio_cliente = repositorio_cliente
 
-    def crear_pedido(self, cliente_id) -> Optional[Pedido]:
+    def check_cliente(self, cliente_id):
         cliente = self.repositorio_cliente.obtener(cliente_id)
-
         if not cliente:
             raise ClienteNoEncontrado(f"Cliente con ID {cliente_id} no encontrado.")
 
+    def check_pedido(self, pedido_id):
+        pedido = self.repositorio_pedido.obtener_pedido(pedido_id)
+        if not pedido:
+            raise PedidoNoEncontrado(f"Pedido con ID {pedido_id} no encontrado.")
+
+    def crear_pedido(self, cliente_id) -> Optional[Pedido]:
+        self.check_cliente(cliente_id)
         nuevo_pedido = self.repositorio_pedido.crear_pedido(cliente_id)
         return nuevo_pedido
 
-    def obtener_pedidos(self) -> List[Pedido]:
-        return "Este método devolverá una lista de todos los pedidos registrados."
+    def obtener_pedidos(self, cliente_id) -> List[Pedido]:
+        self.check_cliente(cliente_id)
+        pedidos = self.repositorio_pedido.obtener_pedidos(cliente_id)
+        return pedidos
 
-    def obtener_pedido(self, id: str) -> Optional[Pedido]:
-        return "Este método buscará un pedido por su ID y devolverá el objeto Pedido si se encuentra."
+    def obtener_pedido(self, cliente_id, pedido_id: str) -> Optional[Pedido]:
+        self.check_cliente(cliente_id)
+        self.check_pedido(pedido_id)
+        pedido = self.repositorio_pedido.obtener_pedido(pedido_id)
+        return pedido
 
     def actualizar_pedido(self, id: str) -> Optional[Pedido]:
         return "Este método actualizara un pedido por su ID y devolverá el objeto Pedido si se encuentra."

@@ -7,17 +7,17 @@ from src.domain.entities.Pedido import Pedido
 
 class ServicioPedidoPort(ABC):
     @abstractmethod
-    def crear_pedido(self, cliente_id) -> Optional[Pedido]:
+    def crear_pedido(self, cliente_id: str) -> Optional[Pedido]:
         """Registra un nuevo pedido y devuelve el objeto Pedido creado."""
         pass
 
     @abstractmethod
-    def obtener_pedidos(self) -> List[Pedido]:
+    def obtener_pedidos(self, cliente_id: str) -> List[Pedido]:
         """Devuelve una lista de todos los pedidos registrados."""
         pass
 
     @abstractmethod
-    def obtener_pedido(self, id: str) -> Optional[Pedido]:
+    def obtener_pedido(self, cliente_id: str, pedido_id: str) -> Optional[Pedido]:
         """Busca un pedido por su ID y devuelve el objeto Pedido si se encuentra."""
         pass
 

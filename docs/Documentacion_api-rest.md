@@ -287,9 +287,17 @@ null
 
 ---
 
+### Obtener Pedidos
+
+- **Endpoint:** `clientes/{cliente_id}/pedidos`
+- **Método HTTP:** `GET`
+- **Descripción:** Obtener pedidos para un cliente
+
+---
+
 ### Obtener Pedido
 
-- **Endpoint:** `/pedidos/{pedido_id}`
+- **Endpoint:** `clientes/{cliente_id}/pedidos/{pedido_id}`
 - **Método HTTP:** `GET`
 - **Descripción:** Detalles de un pedido por ID.
 
@@ -297,7 +305,7 @@ null
 
 ### Actualizar Estado de Pedido
 
-- **Endpoint:** `/pedidos/{pedido_id}/estado`
+- **Endpoint:** `clientes/{cliente_id}/pedidos/{pedido_id}/estado`
 - **Método HTTP:** `PUT`
 - **Descripción:** Cambia el estado del pedido (ej. a pagado).
 
@@ -319,7 +327,7 @@ null
 
 ### Cancelar Pedido
 
-- **Endpoint:** `/pedidos/{pedido_id}`
+- **Endpoint:** `clientes/{cliente_id}/pedidos/{pedido_id}`
 - **Método HTTP:** `DELETE`
 - **Descripción:** Cancela un pedido.
 
