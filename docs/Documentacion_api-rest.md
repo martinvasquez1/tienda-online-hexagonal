@@ -243,45 +243,11 @@ null
 
 - **Endpoint:** `/clientes/{cliente_id}/pedidos`
 - **Método HTTP:** `POST`
-- **Descripción:** Realiza un pedido y descuenta el stock.
-
-#### Cuerpo:
-
-```json
-{
-  "tipo_pedido": "Estandar",
-  "productos": [
-    {
-      "producto_id": "prod_123",
-      "cantidad": 2
-    }
-  ]
-}
-```
+- **Descripción:** Realiza un pedido.
 
 #### Respuestas:
 
 - `201 Created`
-
-```json
-{
-  "status": "success",
-  "data": {
-    "id": "ped_789",
-    "estado": "pendiente",
-    "cliente_id": "cli_456",
-    "total": 1999.98,
-    "productos": [
-      {
-        "id": "prod_123",
-        "nombre": "Laptop",
-        "cantidad": 2
-      }
-    ]
-  }
-}
-```
-
 - `400 Bad Request`
 - `404 Not Found`
 
@@ -293,6 +259,11 @@ null
 - **Método HTTP:** `GET`
 - **Descripción:** Obtener pedidos para un cliente
 
+#### Respuestas:
+
+- `200 OK`
+- `404 Not Found`
+
 ---
 
 ### Obtener Pedido
@@ -301,19 +272,22 @@ null
 - **Método HTTP:** `GET`
 - **Descripción:** Detalles de un pedido por ID.
 
+#### Respuestas:
+
+- `200 OK`
+- `404 Not Found`
+
 ---
 
 ### Actualizar Estado de Pedido
 
 - **Endpoint:** `clientes/{cliente_id}/pedidos/{pedido_id}/estado`
 - **Método HTTP:** `PUT`
-- **Descripción:** Cambia el estado del pedido (ej. a pagado).
-
-#### Cuerpo:
+- **Descripción:** Cambia el estado del pedido.
 
 ```json
 {
-  "nuevo_estado": "pagado"
+  "estado": "pendiente" | "pagado" | "en preparación" | "enviado" | "entregado" | "cancelado"
 }
 ```
 
