@@ -39,16 +39,13 @@ async def obtener_clientes(
     status_code=status.HTTP_200_OK,
 ):
     try:
-        print("1")
         clientes = servicio_cliente.obtener_clientes()
-        print("2")
 
         if clientes is None:
             raise HTTPException(
                 status_code=status.HTTP_404_NOT_FOUND,
                 detail="Lista de clientes no encontrada",
             )
-        print("3")
 
         return clientes
 
