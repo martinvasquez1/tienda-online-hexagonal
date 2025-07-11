@@ -11,13 +11,13 @@ class RepositorioCliente(ABC):
         pass
 
     @abstractmethod
-    def obtener(self, id_cliente) -> Optional[Cliente]:
-        """Obtiene un cliente por su ID."""
+    def obtener_clientes(self) -> List[Cliente]:
+        """Lista todos los clientes en el repositorio."""
         pass
 
     @abstractmethod
-    def obtener_clientes(self) -> List[Cliente]:
-        """Lista todos los clientes en el repositorio."""
+    def obtener(self, id_cliente) -> Optional[Cliente]:
+        """Obtiene un cliente por su ID."""
         pass
 
     @abstractmethod

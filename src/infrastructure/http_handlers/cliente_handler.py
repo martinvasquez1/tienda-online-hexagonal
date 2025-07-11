@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Depends, Request, status
+from fastapi import APIRouter, HTTPException, Depends, status
 
 from src.infrastructure.dependencies.dependencias_cliente import (
     obtener_servicio_cliente,
@@ -39,13 +39,16 @@ async def obtener_clientes(
     status_code=status.HTTP_200_OK,
 ):
     try:
+        print("1")
         clientes = servicio_cliente.obtener_clientes()
+        print("2")
 
         if clientes is None:
             raise HTTPException(
                 status_code=status.HTTP_404_NOT_FOUND,
                 detail="Lista de clientes no encontrada",
             )
+        print("3")
 
         return clientes
 
@@ -63,7 +66,7 @@ async def obtener_cliente(
     status_code=status.HTTP_200_OK,
 ):
     try:
-        cliente = servicio_cliente.buscar_cliente_por_id(id)
+        cliente = servicio_cliente.obtener(cliente_id)
 
         if cliente is None:
             raise HTTPException(
