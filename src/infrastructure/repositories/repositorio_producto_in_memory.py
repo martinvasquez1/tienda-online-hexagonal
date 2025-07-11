@@ -39,5 +39,11 @@ class RepositorioProductoInMemory(RepositorioProducto):
 
         return producto
 
-    def eliminar(self, id_producto) -> None:
-        return "Este método eliminará un producto del repositorio por su ID."
+    def eliminar_producto(self, id_producto) -> Optional[Producto]:
+        producto = next((p for p in self.productos if p.id == id_producto), None)
+
+        if not producto:
+            return None
+
+        self.productos = [p for p in self.productos if p.id != id_producto]
+        return producto

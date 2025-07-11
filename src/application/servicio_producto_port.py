@@ -28,6 +28,6 @@ class ServicioProductoPort(ABC):
         pass
 
     @abstractmethod
-    def eliminar_producto(self, id: int) -> bool:
-        """Elimina un producto por su ID y devuelve True si se eliminó con éxito."""
+    def eliminar_producto(self, id: int) -> Optional[Producto]:
+        """Elimina un producto por su ID y devuelve el producto si se eliminó con éxito."""
         pass

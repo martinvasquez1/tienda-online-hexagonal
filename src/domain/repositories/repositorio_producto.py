@@ -28,6 +28,6 @@ class RepositorioProducto(ABC):
         pass
 
     @abstractmethod
-    def eliminar(self, id_producto) -> None:
+    def eliminar_producto(self, id_producto) -> Optional[Producto]:
         """Elimina un producto del repositorio por su ID."""
         pass

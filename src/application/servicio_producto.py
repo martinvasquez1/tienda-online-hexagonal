@@ -29,5 +29,6 @@ class ServicioProducto(ServicioProductoPort):
         )
         return producto_actualizado
 
-    def eliminar_producto(self, id: int) -> bool:
-        return "Este método eliminará un producto por su ID y devolverá True si se eliminó con éxito."
+    def eliminar_producto(self, id: int) -> Optional[Producto]:
+        producto_eliminado = self.repositorio_producto.eliminar_producto(id)
+        return producto_eliminado

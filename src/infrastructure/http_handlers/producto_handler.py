@@ -52,7 +52,8 @@ async def actualizar_producto(
 
 @router.delete("/productos/{producto_id}")
 async def eliminar_producto(
-    request: Request,
+    producto_id: int,
     servicio_producto: ServicioProductoPort = Depends(obtener_servicio_prodcuto),
 ):
-    raise HTTPException(status_code=501, detail="No implementado")
+    producto_eliminado = servicio_producto.eliminar_producto(producto_id)
+    return producto_eliminado
