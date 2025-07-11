@@ -49,33 +49,3 @@ async def obtener_productos(
         raise HTTPException(status_code=404, detail=str(e))
     except PedidoNoEncontrado as e:
         raise HTTPException(status_code=404, detail=str(e))
-
-
-@router.get("/productos/{producto_id}")
-async def obtener_producto(
-    producto_id: int,
-    servicio_producto: ServicioProductoPort = Depends(obtener_servicio_prodcuto),
-):
-    producto = servicio_producto.obtener_producto(producto_id)
-    return producto
-
-
-@router.put("/productos/{producto_id}")
-async def actualizar_producto(
-    producto_id: int,
-    producto: ActualizarProducto,
-    servicio_producto: ServicioProductoPort = Depends(obtener_servicio_prodcuto),
-):
-    producto_actualizado = servicio_producto.actualizar_producto(
-        producto_id, producto.nombre, producto.precio, producto.stock
-    )
-    return producto_actualizado
-
-
-@router.delete("/productos/{producto_id}")
-async def eliminar_producto(
-    producto_id: int,
-    servicio_producto: ServicioProductoPort = Depends(obtener_servicio_prodcuto),
-):
-    producto_eliminado = servicio_producto.eliminar_producto(producto_id)
-    return producto_eliminado

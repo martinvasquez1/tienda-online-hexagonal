@@ -16,8 +16,8 @@ La API de UVShop sigue los principios de diseño REST y permite la gestión de *
 
 ```json
 {
-  "nombre": "Laptop",
-  "precio": 999.99,
+  "nombre": "1984",
+  "precio": 19.99,
   "stock": 50
 }
 ```
@@ -25,7 +25,7 @@ La API de UVShop sigue los principios de diseño REST y permite la gestión de *
 #### Respuestas:
 
 - `201 Created`
-- `422 Unprocessable Entity`: Error de validación.
+- `422 Unprocessable Entity`
 
 ---
 
@@ -44,118 +44,18 @@ La API de UVShop sigue los principios de diseño REST y permite la gestión de *
   {
     "id": 1,
     "nombre": "1984",
-    "precio": 11,
+    "precio": 19.99,
     "stock": 3,
     "pedido_id": 1
   },
   {
     "id": 2,
     "nombre": "Fahrenheit 451",
-    "precio": 11,
+    "precio": 30.0,
     "stock": 5,
     "pedido_id": 1
   }
 ]
-```
-
----
-
-### Obtener Producto
-
-- **Endpoint:** `/productos/{producto_id}`
-- **Método HTTP:** `GET`
-- **Descripción:** Recupera los detalles de un producto específico.
-
-#### Respuestas:
-
-- `200 OK`
-
-```json
-{
-  "status": "success",
-  "data": {
-    "id": "123",
-    "nombre": "Laptop",
-    "precio": 999.99,
-    "stock": 50
-  }
-}
-```
-
-- `404 Not Found`
-
-```json
-{
-  "status": "fail",
-  "detail": "Producto con ID {producto_id} no encontrado."
-}
-```
-
----
-
-### Actualizar Producto
-
-- **Endpoint:** `/productos/{producto_id}`
-- **Método HTTP:** `PUT`
-- **Descripción:** Actualiza los detalles de un producto.
-
-#### Cuerpo:
-
-```json
-{
-  "nombre": "Laptop Pro",
-  "precio": 1099.99,
-  "stock": 45
-}
-```
-
-#### Respuestas:
-
-- `200 OK`
-
-```json
-{
-  "status": "success",
-  "data": {
-    "id": "123",
-    "nombre": "Laptop Pro",
-    "precio": 1099.99,
-    "stock": 45
-  }
-}
-```
-
-- `404 Not Found`  
-  [ ]
-
----
-
-### Eliminar Producto
-
-- **Endpoint:** `/productos/{producto_id}`
-- **Método HTTP:** `DELETE`
-- **Descripción:** Elimina un producto existente.
-
-#### Respuestas:
-
-- `204 NO CONTENT`
-
-```json
-{
-  "status": "success",
-  "data": {
-    "id": "123",
-    "nombre": "Laptop Pro",
-    "precio": 1099.99,
-    "stock": 45
-  }
-}
-```
-
-- `404 Not Found`
-
-```json
-null
 ```
 
 ---

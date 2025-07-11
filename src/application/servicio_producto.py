@@ -52,23 +52,3 @@ class ServicioProducto(ServicioProductoPort):
 
         productos = self.repositorio_producto.obtener_productos(pedido_id)
         return productos
-
-    def obtener_producto(self, id: int) -> Optional[Producto]:
-        producto = self.repositorio_producto.obtener_producto(id)
-        return producto
-
-    def actualizar_producto(
-        self,
-        id: int,
-        nombre: Optional[str],
-        precio: Optional[float],
-        stock: Optional[int],
-    ):
-        producto_actualizado = self.repositorio_producto.actualizar_producto(
-            id, nombre, precio, stock
-        )
-        return producto_actualizado
-
-    def eliminar_producto(self, id: int) -> Optional[Producto]:
-        producto_eliminado = self.repositorio_producto.eliminar_producto(id)
-        return producto_eliminado

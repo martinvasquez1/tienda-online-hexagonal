@@ -14,20 +14,3 @@ class RepositorioProducto(ABC):
     def obtener_productos(self, pedido_id: int) -> List[Producto]:
         """Lista todos los productos en el repositorio."""
         pass
-
-    @abstractmethod
-    def obtener_producto(self, id_producto) -> Optional[Producto]:
-        """Obtiene un producto por su ID."""
-        pass
-
-    @abstractmethod
-    def actualizar_producto(
-        self, id: int, nombre: Optional[str], precio: Optional[float]
-    ) -> Optional[Producto]:
-        """Actualiza la información de un producto existente."""
-        pass
-
-    @abstractmethod
-    def eliminar_producto(self, id_producto) -> Optional[Producto]:
-        """Elimina un producto del repositorio por su ID."""
-        pass

@@ -20,37 +20,3 @@ class RepositorioProductoInMemory(RepositorioProducto):
 
     def obtener_productos(self, pedido_id: int) -> List[Producto]:
         return [p for p in self.productos if p.pedido_id == pedido_id]
-
-    def obtener_producto(self, id_producto) -> Optional[Producto]:
-        producto = next((p for p in self.productos if p.id == id_producto), None)
-        return producto
-
-    def actualizar_producto(
-        self,
-        id: int,
-        nombre: Optional[str],
-        precio: Optional[float],
-        stock: Optional[int],
-    ) -> Optional[Producto]:
-        producto = next((p for p in self.productos if p.id == id), None)
-
-        if not producto:
-            return None
-
-        if nombre is not None:
-            producto.nombre = nombre
-        if precio is not None:
-            producto.precio = precio
-        if stock is not None:
-            producto.stock = stock
-
-        return producto
-
-    def eliminar_producto(self, id_producto) -> Optional[Producto]:
-        producto = next((p for p in self.productos if p.id == id_producto), None)
-
-        if not producto:
-            return None
-
-        self.productos = [p for p in self.productos if p.id != id_producto]
-        return producto
