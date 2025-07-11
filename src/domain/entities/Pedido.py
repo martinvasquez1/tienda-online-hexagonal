@@ -17,13 +17,13 @@ class EstadoPedido(Enum):
 
 
 class Pedido(ABC):
-    def __init__(self, id, usuario_id):
+    def __init__(self, id, cliente_id):
         self.id = id
         self.estado = EstadoPedido.EN_PREPARACION
         self.productos: Producto = []
         self.precio_estandar = 10
         self.fecha = None
-        self.usuario_id = usuario_id
+        self.cliente_id = cliente_id
 
     def agregar_producto(self, producto):
         self.productos.append(producto)

@@ -18,7 +18,7 @@ class RepositorioPedidoInMemory(RepositorioPedido):
         return nuevo_pedido
 
     def obtener_pedidos(self, cliente_id) -> List[Pedido]:
-        pedidos_cliente = [pedido for p in self.pedidos if p.cliente_id == cliente_id]
+        pedidos_cliente = [p for p in self.pedidos if p.cliente_id == cliente_id]
         return pedidos_cliente
 
     def obtener_pedido(self, pedido_id) -> Optional[Pedido]:
